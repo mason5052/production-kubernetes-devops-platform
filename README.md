@@ -1,10 +1,8 @@
 # Production Kubernetes DevOps Platform
 
-Public-safe case study of a production DevOps platform built and operated with Kubernetes, AWS, Terraform, GitHub Actions, ArgoCD, Docker, Prometheus, Grafana, Alertmanager, CloudWatch, and security automation.
+Production DevOps platform case study for Kubernetes, AWS, Terraform, GitHub Actions, ArgoCD, Docker, Prometheus, Grafana, Alertmanager, CloudWatch, and security automation.
 
-This repository shows the architecture, CI/CD model, Kubernetes operating practices, observability model, security controls, and production outcomes behind a real platform engineering effort. All employer-specific implementation details have been removed or generalized.
-
-Public boundary: this repository does not contain employer source code, internal project names, customer data, hostnames, IP addresses, account IDs, credentials, private topology, Terraform state, kubeconfigs, or proprietary configuration.
+This repository shows how a production platform was designed, delivered, secured, monitored, and operated across cloud infrastructure, Kubernetes workloads, CI/CD, observability, and day-2 operations.
 
 ## Executive Snapshot
 
@@ -67,7 +65,7 @@ flowchart LR
 
 The platform used Kubernetes as the runtime foundation for production applications, automation workloads, and shared platform services.
 
-| Capability | Public-safe operating model |
+| Capability | Operating model |
 |------------|-----------------------------|
 | Workload isolation | Namespaces and RBAC were used to separate ownership and operational boundaries. |
 | Rollout safety | Readiness checks, liveness checks, rollout status checks, and rollback paths were used to reduce failed deployment impact. |
@@ -128,7 +126,7 @@ sequenceDiagram
 
 Terraform was used to make cloud infrastructure repeatable, reviewable, and easier to audit.
 
-| IaC area | Public-safe implementation summary |
+| IaC area | Implementation summary |
 |----------|------------------------------------|
 | Compute | Provisioned and maintained compute capacity for Kubernetes and supporting workloads. |
 | Networking | Managed network boundaries, security groups, load balancing, and environment segmentation. |
@@ -164,7 +162,7 @@ Production improvements included better incident visibility, faster response, cl
 
 The security model focused on practical controls that improved production safety without blocking engineering velocity.
 
-| Control area | Public-safe implementation summary |
+| Control area | Implementation summary |
 |--------------|------------------------------------|
 | IAM | Reduced broad cloud permissions and moved toward scoped, least-privilege policies. |
 | Kubernetes RBAC | Used role-based access patterns to limit who and what could change cluster resources. |
@@ -221,7 +219,7 @@ Recovery practices included backup planning, selected restore validation, rollba
 
 ## Representative Examples
 
-The example files are sanitized and intentionally generic. They exist to show engineering patterns, not employer-specific implementation.
+The example files are generic patterns. They exist to show engineering judgment, not employer-specific implementation.
 
 | Path | What it shows |
 |------|---------------|
@@ -231,7 +229,7 @@ The example files are sanitized and intentionally generic. They exist to show en
 | `examples/kubernetes/cronjob.yaml` | Scheduled automation workload pattern. |
 | `examples/kubernetes/network-policy.yaml` | Example service boundary pattern. |
 | `examples/monitoring/prometheus-rule.yaml` | Alert rule pattern for actionable service health monitoring. |
-| `examples/terraform/` | Public-safe Terraform structure for cloud foundation concepts. |
+| `examples/terraform/` | Terraform structure for cloud foundation concepts. |
 
 ## Optional Deep Dives
 
@@ -244,8 +242,8 @@ The README contains the main story. The `docs/` folder keeps the same material s
 | `docs/observability.md` | Monitoring, alerting, dashboard, log, and incident response model. |
 | `docs/security-and-governance.md` | IAM, RBAC, vulnerability, WAF, and audit-readiness controls. |
 | `docs/operations-and-dr.md` | Day-2 operations, runbooks, backup, recovery, and on-call practices. |
-| `docs/public-sanitization.md` | Public release boundary and removed sensitive detail categories. |
+| `docs/public-sanitization.md` | Disclosure boundary and removed sensitive detail categories. |
 
-## Public Safety Boundary
+## Disclosure Boundary
 
-All identifiers and configurations are generalized. The repository communicates production platform engineering judgment, operating model, and technical ownership without exposing private infrastructure or employer confidential information.
+This repository focuses on architecture, operating model, and engineering decisions. Employer source code, customer data, hostnames, IP addresses, account IDs, credentials, Terraform state, kubeconfigs, private topology, and proprietary configuration are not included.

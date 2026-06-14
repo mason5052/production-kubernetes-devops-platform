@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: platform-service-alerts
+  namespace: monitoring
+spec:
+  groups:
+    - name: platform-service.rules
+      rules:
+        - alert: PlatformServiceHighErrorRate
+          expr: |
+            sum(rate(http_requests_total{namespace="platform-example",status=~"5.."}[5m]))
+            /
+            sum(rate(http_requests_total{namespace="platform-example"}[5m]))
+            > 0.05
+          for: 10m
+          labels:
+            severity: warning
+            service: platform-service
+          annotations:
+            summary: Platform service has elevated 5xx error rate
+            description: Review recent deployments, pod restarts, application logs, and upstream dependency health.
+

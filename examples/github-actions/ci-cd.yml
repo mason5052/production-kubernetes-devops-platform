@@ -1,0 +1,62 @@
+name: ci-cd
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+env:
+  IMAGE_NAME: registry.example.internal/platform-service
+
+jobs:
+  validate-build-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set image tag
+        shell: bash
+        run: echo "IMAGE_TAG=$(date +%Y%m%d)-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
+
+      - name: Validate Kubernetes manifests
+        shell: bash
+        run: |
+          kubectl kustomize examples/kubernetes >/tmp/rendered.yaml
+          kubectl apply --dry-run=client -f /tmp/rendered.yaml
+
+      - name: Build image
+        shell: bash
+        run: docker build -t "$IMAGE_NAME:$IMAGE_TAG" .
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+
+      - name: Log in to registry
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login registry.example.internal -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
+
+      - name: Push image
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: docker push "$IMAGE_NAME:$IMAGE_TAG"
+
+      - name: Deployment handoff
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          echo "Update GitOps desired state with image tag: $IMAGE_TAG"
+          echo "ArgoCD or a controlled deploy job should reconcile the environment."
+

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platform-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/example-org/platform-config.git
+    targetRevision: main
+    path: environments/prod/platform-service
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: platform-example
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+

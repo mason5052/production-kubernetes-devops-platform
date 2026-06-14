@@ -1,6 +1,6 @@
 # Portfolio Roadmap
 
-This roadmap separates what this repository already demonstrates from what is intentionally tracked as future engineering work.
+This roadmap separates what this repository already covers from what is intentionally tracked as future engineering work.
 
 ## Complete Now
 
@@ -16,7 +16,7 @@ This roadmap separates what this repository already demonstrates from what is in
 
 ## 2026 Portfolio Evidence
 
-Goal: demonstrate cloud and platform security ownership, not only DevOps execution.
+Goal: make cloud and platform security ownership visible, not only DevOps execution.
 
 Tracked work:
 
@@ -54,7 +54,7 @@ Tracked work:
 
 ## 2029 Staff-Level Ownership
 
-Goal: demonstrate governance, metrics, and multi-team platform ownership.
+Goal: document governance, metrics, and multi-team platform ownership.
 
 Tracked work:
 
@@ -76,6 +76,6 @@ Possible directions:
 
 Each new artifact should answer three questions:
 
-1. What production responsibility does this demonstrate?
+1. What production responsibility does this cover?
 2. What engineering judgment does it make visible?
 3. How does it stay focused on DevOps platform work?

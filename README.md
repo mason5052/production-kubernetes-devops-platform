@@ -17,7 +17,7 @@ This repository shows how a production platform was designed, delivered, secured
 | Security improvement | Reduced malicious traffic exposure by 90%+ through AWS WAF and security control improvements. |
 | Operational maturity | Improved incident visibility, response time, and audit response speed through monitoring, alerting, evidence, and documentation. |
 
-## What This Demonstrates
+## Production Responsibilities
 
 - Built and operated a production Kubernetes platform rather than only using managed application hosting.
 - Standardized cloud infrastructure provisioning with Terraform modules for compute, networking, load balancing, storage, IAM, and environment separation.
@@ -25,7 +25,7 @@ This repository shows how a production platform was designed, delivered, secured
 - Used GitOps-oriented delivery with ArgoCD-style desired-state configuration for repeatable Kubernetes deployments.
 - Operated production monitoring and incident response with Prometheus, Grafana, Alertmanager, CloudWatch, logs, dashboards, alerts, and runbooks.
 - Improved security posture through IAM hardening, Kubernetes RBAC, vulnerability remediation support, WAF tuning, secrets hygiene, and audit-ready evidence.
-- Demonstrated a roadmap toward policy-as-code, supply chain trust, and AI-assisted delivery governance.
+- Extended the operating model toward policy-as-code, supply chain trust, and AI-assisted delivery governance.
 - Supported platform reliability, cost optimization, compliance response, and day-2 operational maturity across cloud and Kubernetes environments.
 
 ## Architecture At A Glance
@@ -254,7 +254,7 @@ The README contains the main story. The `docs/` folder keeps the same material s
 | `docs/observability.md` | Monitoring, alerting, dashboard, log, and incident response model. |
 | `docs/security-and-governance.md` | IAM, RBAC, vulnerability, WAF, and audit-readiness controls. |
 | `docs/operations-and-dr.md` | Day-2 operations, runbooks, backup, recovery, and on-call practices. |
-| `docs/portfolio-roadmap.md` | Completed proof points and intentionally tracked roadmap gaps. |
+| `docs/portfolio-roadmap.md` | Completed production evidence and intentionally tracked follow-up work. |
 
 ## License
 

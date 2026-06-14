@@ -12,7 +12,7 @@ The security model focused on practical controls that improve production safety 
 | CI/CD guardrails | Added build, validation, scan, and rollout checks before production deployment. |
 | WAF and edge security | Tuned web application firewall controls to reduce malicious traffic exposure. |
 | Audit support | Improved evidence retrieval for infrastructure, deployment, access, and operational controls. |
-| Secrets hygiene | Avoided committing secrets and excluded sensitive files from public and source-controlled artifacts. |
+| Secrets hygiene | Avoided committing secrets and excluded sensitive files from source-controlled artifacts. |
 | Change control | Connected source review, rollout evidence, rollback paths, and risk decisions. |
 | Policy-as-code | Used repeatable policy patterns to reduce manual review drift across Kubernetes and CI/CD. |
 | AI SDLC guardrails | Kept AI-assisted delivery bounded by approval, audit logging, and tool access controls. |
@@ -43,7 +43,7 @@ The Kubernetes security pattern is:
 
 ## Vulnerability Management Pattern
 
-The market analysis showed vulnerability management as one of the strongest DevSecOps signals. The operating pattern is:
+The vulnerability management pattern is designed to turn scan output into prioritized operational work:
 
 1. Collect findings from image, dependency, IaC, and configuration scans.
 2. Normalize severity, affected component, fixed version, exploitability, and workload exposure.
@@ -68,7 +68,7 @@ The platform model treats change control as an engineering workflow, not a separ
 
 ## Policy-As-Code Direction
 
-Manual review does not scale across many teams and workloads. The public examples show how platform rules can become executable controls:
+Manual review does not scale across many teams and workloads. The examples show how platform rules can become executable controls:
 
 - Admission policies for required metadata, non-privileged pods, probes, and resource controls.
 - CI/CD checks that block obvious policy violations before a deployment reaches the cluster.
@@ -95,5 +95,5 @@ AI-assisted development changes delivery speed, but it does not remove the need 
 - Clearer ownership boundaries for cloud and Kubernetes changes.
 - Better vulnerability remediation support through scanning and operational tracking.
 - Safer CI/CD releases through repeatable gates and rollout checks.
-- Better public proof of cloud security, platform security, and DevSecOps ownership.
+- Clearer evidence of cloud security, platform security, and DevSecOps ownership.
 

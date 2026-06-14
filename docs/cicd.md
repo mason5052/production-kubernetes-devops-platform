@@ -57,7 +57,7 @@ sequenceDiagram
 
 ## Image Tagging
 
-The public example uses a traceable tag pattern:
+The example uses a traceable tag pattern:
 
 ```text
 <service-name>:<yyyyMMdd>-<short-sha>
@@ -67,7 +67,7 @@ This makes it easier to connect a running workload back to a source commit and d
 
 ## Supply Chain Evidence Pattern
 
-The Fortune 500 JD analysis showed that classic CI/CD remains important, but security ownership is the differentiator. A production-grade CI/CD path should therefore keep evidence around the artifact, not only deploy it.
+A production-grade CI/CD path should keep evidence around the artifact, not only deploy it.
 
 | Evidence | Pattern |
 |----------|---------------------|

@@ -1,6 +1,6 @@
 # Portfolio Roadmap
 
-This roadmap turns the market analysis into public proof artifacts. It separates what this repository already demonstrates from what is intentionally tracked as future issues.
+This roadmap separates what this repository already demonstrates from what is intentionally tracked as future engineering work.
 
 ## Complete Now
 
@@ -14,9 +14,9 @@ This roadmap turns the market analysis into public proof artifacts. It separates
 | Security and governance narrative | `docs/security-and-governance.md` |
 | Policy-as-code guardrails with tests | `examples/policy-as-code/` (Kyverno policies plus `kyverno test` coverage) |
 
-## 2026 Public Proof
+## 2026 Portfolio Evidence
 
-Goal: make the repo prove cloud and platform security ownership, not only DevOps execution.
+Goal: demonstrate cloud and platform security ownership, not only DevOps execution.
 
 Tracked work:
 
@@ -59,23 +59,23 @@ Goal: demonstrate governance, metrics, and multi-team platform ownership.
 Tracked work:
 
 - Add platform governance metrics model.
-- Add public validation workflow for YAML, Terraform, Markdown, and examples.
+- Add validation workflow for YAML, Terraform, Markdown, and examples.
 
 ## 2030-2031 Leverage Track
 
-Goal: turn the repo from a resume supplement into a reusable public asset.
+Goal: grow the repository into a reusable production engineering reference.
 
 Possible directions:
 
 - Package the guardrail examples as a reusable starter kit.
 - Publish architecture decision records as writing samples.
 - Add talks, diagrams, and release notes if the repo begins receiving external attention.
-- Keep the repo aligned to cloud security, platform security, DevSecOps, and AI SDLC governance roles.
+- Keep the repo focused on cloud security, platform security, DevSecOps, and AI SDLC governance work.
 
 ## Maintenance Rule
 
 Each new artifact should answer three questions:
 
-1. What market signal does this prove?
-2. What production judgment does it demonstrate?
-3. How does it stay focused on DevOps engineering proof?
+1. What production responsibility does this demonstrate?
+2. What engineering judgment does it make visible?
+3. How does it stay focused on DevOps platform work?

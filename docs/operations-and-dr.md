@@ -44,7 +44,7 @@ flowchart TD
 - Track recurring incidents and fix the repeated cause, not only the symptom.
 - Keep monitoring and deployment data close together during incident review.
 
-## Public-Safe Outcomes
+## Operations Outcomes
 
 - Improved incident visibility and response time.
 - Reduced manual recovery effort through runbooks and deployment automation.

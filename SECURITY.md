@@ -1,8 +1,8 @@
 # Security Policy
 
-This repository is a public portfolio artifact for production DevOps and platform engineering experience.
+This repository is a portfolio artifact for production DevOps and platform engineering experience.
 
-## Public-Safe Boundary
+## Repository Boundary
 
 The repository must not include:
 

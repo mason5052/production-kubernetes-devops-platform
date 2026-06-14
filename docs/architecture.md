@@ -24,7 +24,7 @@ This platform represents a production-oriented cloud and Kubernetes operating mo
 
 ## Cloud And Kubernetes Model
 
-The public version intentionally avoids private topology. At a safe level, the production model used:
+This architecture overview keeps private topology out of scope. At a high level, the production model used:
 
 - AWS infrastructure as the cloud foundation.
 - Terraform modules to provision and update cloud resources.

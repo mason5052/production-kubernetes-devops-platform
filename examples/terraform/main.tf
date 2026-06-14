@@ -18,13 +18,13 @@ locals {
     Environment = var.environment
     Platform    = var.cluster_name
     ManagedBy   = "terraform"
-    Purpose     = "public-safe-example"
+    Purpose     = "portfolio-example"
   }
 }
 
 resource "aws_security_group" "worker" {
   name        = "${var.cluster_name}-worker-example"
-  description = "Public-safe example worker security group"
+  description = "Example worker security group"
   vpc_id      = var.vpc_id
 
   egress {

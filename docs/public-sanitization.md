@@ -16,12 +16,12 @@ This repository is based on real production DevOps and platform engineering work
 - High-level architecture patterns
 - Technology choices
 - Operating responsibilities
-- Sanitized CI/CD flow
-- Sanitized Kubernetes deployment patterns
-- Sanitized Terraform module patterns
+- CI/CD flow
+- Kubernetes deployment patterns
+- Terraform module patterns
 - Monitoring and alerting model
 - Security and governance practices
-- Public-safe business outcomes
+- Business outcomes
 
 ## Intended Audience
 

@@ -13,7 +13,6 @@ This roadmap turns the market analysis into public proof artifacts. It separates
 | Terraform-based cloud foundation | `examples/terraform/` |
 | Security and governance narrative | `docs/security-and-governance.md` |
 | Policy-as-code guardrails with tests | `examples/policy-as-code/` (Kyverno policies plus `kyverno test` coverage) |
-| Public-safe disclosure boundary | `SECURITY.md`, `docs/public-sanitization.md` |
 
 ## 2026 Public Proof
 
@@ -79,4 +78,4 @@ Each new artifact should answer three questions:
 
 1. What market signal does this prove?
 2. What production judgment does it demonstrate?
-3. How does it stay public-safe?
+3. How does it stay focused on DevOps engineering proof?

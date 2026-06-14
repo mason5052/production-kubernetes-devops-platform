@@ -1,6 +1,6 @@
-# Production Kubernetes DevOps Platform
+# Production DevOps Portfolio: Kubernetes Platform Engineering
 
-Production DevOps platform case study for Kubernetes, AWS, Terraform, GitHub Actions, ArgoCD, Docker, Prometheus, Grafana, Alertmanager, CloudWatch, and security automation.
+Production DevOps portfolio for Kubernetes platform engineering, AWS infrastructure, Terraform, GitHub Actions, ArgoCD, Docker, Prometheus, Grafana, Alertmanager, CloudWatch, and security automation.
 
 This repository shows how a production platform was designed, delivered, secured, monitored, and operated across cloud infrastructure, Kubernetes workloads, CI/CD, observability, and day-2 operations. It is organized around the DevOps and DevSecOps capabilities that repeatedly appeared in a Fortune 500 JD analysis: cloud, Kubernetes, CI/CD, observability, IAM, vulnerability management, compliance evidence, policy-as-code, supply chain security, and AI-era delivery guardrails.
 
@@ -29,7 +29,7 @@ The repo is structured around a public-source Fortune 500 DevOps/DevSecOps marke
 | Incident and on-call ownership | 229/380 postings, 60% | Day-2 operations, rollback flow, runbook and triage patterns. |
 | CI/CD | 181/380 postings, 48% | GitHub Actions pipeline, validation gates, scan gates, deployment handoff. |
 | Kubernetes | 165/380 postings, 43% | Workload model, rollout safety, RBAC, network policy, admission policy examples. |
-| Terraform and IaC | 140/380 postings, 37% | Public-safe Terraform foundation and least-privilege guardrail direction. |
+| Terraform and IaC | 140/380 postings, 37% | Terraform foundation and least-privilege guardrail direction. |
 | Vulnerability management | 119/380 postings, 31% | Trivy gate, risk triage example, remediation evidence pattern. |
 | Compliance and risk | 195/380 compliance mentions, 194/380 risk mentions | Change review, audit evidence, risk acceptance, control mapping roadmap. |
 | AI-era platform/security | 141/380 postings, 37% | AI SDLC control-plane examples for guardrails, audit logging, and human approval. |
@@ -42,7 +42,7 @@ The repo is structured around a public-source Fortune 500 DevOps/DevSecOps marke
 - Used GitOps-oriented delivery with ArgoCD-style desired-state configuration for repeatable Kubernetes deployments.
 - Operated production monitoring and incident response with Prometheus, Grafana, Alertmanager, CloudWatch, logs, dashboards, alerts, and runbooks.
 - Improved security posture through IAM hardening, Kubernetes RBAC, vulnerability remediation support, WAF tuning, secrets hygiene, and audit-ready evidence.
-- Demonstrated a roadmap toward policy-as-code, supply chain trust, and AI-assisted delivery governance without exposing private implementation details.
+- Demonstrated a roadmap toward policy-as-code, supply chain trust, and AI-assisted delivery governance.
 - Supported platform reliability, cost optimization, compliance response, and day-2 operational maturity across cloud and Kubernetes environments.
 
 ## Architecture At A Glance
@@ -244,7 +244,7 @@ Recovery practices included backup planning, selected restore validation, rollba
 
 ## Representative Examples
 
-The example files are generic patterns. They exist to show engineering judgment, not employer-specific implementation.
+The example files are practical patterns. They exist to show DevOps engineering judgment across platform, delivery, operations, and security automation.
 
 | Path | What it shows |
 |------|---------------|
@@ -257,7 +257,7 @@ The example files are generic patterns. They exist to show engineering judgment,
 | `examples/terraform/` | Terraform structure for cloud foundation concepts. |
 | `examples/policy-as-code/` | Kyverno admission policies with executable `kyverno test` coverage (see `examples/policy-as-code/README.md`). |
 | `examples/supply-chain/` | SBOM, vulnerability scan, artifact signing, and provenance workflow pattern. |
-| `examples/vulnerability-triage/` | Sanitized scan triage inputs and risk summary output. |
+| `examples/vulnerability-triage/` | Sample scan triage inputs and risk summary output. |
 | `examples/ai-sdlc-control-plane/` | AI-assisted delivery guardrails, audit logging, and human approval boundaries. |
 
 ## Optional Deep Dives
@@ -273,11 +273,6 @@ The README contains the main story. The `docs/` folder keeps the same material s
 | `docs/security-and-governance.md` | IAM, RBAC, vulnerability, WAF, and audit-readiness controls. |
 | `docs/operations-and-dr.md` | Day-2 operations, runbooks, backup, recovery, and on-call practices. |
 | `docs/portfolio-roadmap.md` | Completed proof points and intentionally tracked roadmap gaps. |
-| `docs/public-sanitization.md` | Disclosure boundary and removed sensitive detail categories. |
-
-## Disclosure Boundary
-
-This repository focuses on architecture, operating model, and engineering decisions. Employer source code, customer data, hostnames, IP addresses, account IDs, credentials, Terraform state, kubeconfigs, private topology, and proprietary configuration are not included.
 
 ## License
 

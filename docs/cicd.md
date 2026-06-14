@@ -69,7 +69,7 @@ This makes it easier to connect a running workload back to a source commit and d
 
 The Fortune 500 JD analysis showed that classic CI/CD remains important, but security ownership is the differentiator. A production-grade CI/CD path should therefore keep evidence around the artifact, not only deploy it.
 
-| Evidence | Public-safe pattern |
+| Evidence | Pattern |
 |----------|---------------------|
 | Source | Commit SHA, pull request, reviewer, and branch protection context. |
 | Build | Workflow run ID, runner type, dependency lockfile, and reproducible build command. |
@@ -79,7 +79,7 @@ The Fortune 500 JD analysis showed that classic CI/CD remains important, but sec
 | Provenance | Source, workflow, image digest, and deployment handoff captured for audit and rollback. |
 | Runtime | Kubernetes rollout status, health checks, and post-deploy monitoring linked back to the image digest. |
 
-See `examples/supply-chain/secure-supply-chain.yml` for a sanitized workflow skeleton.
+See `examples/supply-chain/secure-supply-chain.yml` for a sample workflow skeleton.
 
 ## Rollback Model
 
@@ -93,5 +93,5 @@ Rollback depends on the deployment path:
 
 ## Example
 
-See `examples/github-actions/ci-cd.yml` for a public-safe example workflow.
+See `examples/github-actions/ci-cd.yml` for an example workflow.
 

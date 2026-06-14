@@ -12,14 +12,14 @@ This repository is organized around a public-source Fortune 500 DevOps and DevSe
 | Observability | 223/380 postings, 59% | Prometheus, Grafana, Alertmanager, CloudWatch, logs, alerts, and incident review. |
 | CI/CD | 181/380 postings, 48% | GitHub Actions, validation gates, security scan gates, artifact traceability. |
 | Kubernetes | 165/380 postings, 43% | Workload examples, rollout safety, RBAC, network policy, admission policy direction. |
-| Terraform and IaC | 140/380 postings, 37% | Public-safe Terraform examples and reviewable infrastructure patterns. |
+| Terraform and IaC | 140/380 postings, 37% | Terraform examples and reviewable infrastructure patterns. |
 | Vulnerability management | 119/380 postings, 31% | Image scanning, triage workflow, remediation evidence direction. |
 | Compliance and risk | 195/380 compliance mentions and 194/380 risk mentions | Audit evidence, change control, risk acceptance, and governance roadmap. |
 | AI-era platform/security | 141/380 postings, 37% | AI SDLC control-plane examples for guardrails, audit logging, and human approval. |
 
 ## Positioning
 
-The repo is not a generic DevOps sample. It is a public-safe case study of platform ownership across reliability, delivery, security, and governance.
+The repo is not a generic DevOps sample. It is a practical case study of platform ownership across reliability, delivery, security, and governance.
 
 The intended signal is:
 

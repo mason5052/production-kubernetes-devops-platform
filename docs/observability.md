@@ -44,7 +44,7 @@ Alerts should be actionable. A good alert includes:
 
 ## Operational Improvements
 
-Public-safe outcomes from the production environment:
+Production outcomes:
 
 - Improved incident visibility by connecting Kubernetes health, application signals, and cloud telemetry.
 - Reduced response time by standardizing dashboards, alerts, and runbooks.
@@ -52,5 +52,5 @@ Public-safe outcomes from the production environment:
 
 ## Example
 
-See `examples/monitoring/prometheus-rule.yaml` for a public-safe alert rule example.
+See `examples/monitoring/prometheus-rule.yaml` for an alert rule example.
 

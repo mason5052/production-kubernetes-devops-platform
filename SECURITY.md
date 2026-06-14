@@ -1,6 +1,6 @@
 # Security Policy
 
-This repository is a sanitized public portfolio artifact. It is designed to explain production DevOps and platform engineering experience without disclosing private employer systems.
+This repository is a public portfolio artifact for production DevOps and platform engineering experience.
 
 ## Public-Safe Boundary
 

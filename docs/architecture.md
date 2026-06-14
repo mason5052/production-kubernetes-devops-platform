@@ -37,7 +37,7 @@ The public version intentionally avoids private topology. At a safe level, the p
 
 ## Workload Types
 
-| Workload type | Public-safe description |
+| Workload type | Description |
 |---------------|-------------------------|
 | Web services | Containerized business applications deployed through controlled rollouts. |
 | Automation jobs | Scheduled jobs for operational automation and business process automation. |

@@ -1,11 +1,11 @@
 # AI-Assisted Delivery Approval Boundary
 
-This example describes a public-safe control boundary for AI-assisted software delivery. It is a portfolio artifact, not a production policy engine.
+This example describes a control boundary for AI-assisted software delivery. It is a portfolio artifact, not a production policy engine.
 
 ## Allowed Without Human Approval
 
 - Summarize logs, metrics, and pull request context.
-- Draft runbook updates using sanitized incident notes.
+- Draft runbook updates using sample incident notes.
 - Suggest Kubernetes, Terraform, or CI/CD changes in a branch.
 - Generate test cases or policy checks for reviewer approval.
 

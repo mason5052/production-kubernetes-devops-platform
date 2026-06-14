@@ -4,7 +4,7 @@ The security model focused on practical controls that improve production safety 
 
 ## Control Areas
 
-| Area | Public-safe implementation summary |
+| Area | Implementation summary |
 |------|------------------------------------|
 | IAM | Reduced broad cloud permissions and moved toward scoped, least-privilege policies. |
 | Kubernetes RBAC | Used role-based access patterns to limit who and what could change cluster resources. |
@@ -19,7 +19,7 @@ The security model focused on practical controls that improve production safety 
 
 ## IAM Hardening Pattern
 
-The public-safe IAM hardening pattern is:
+The IAM hardening pattern is:
 
 1. Identify broad managed policies and broad inline permissions.
 2. Map required actions to real platform responsibilities.
@@ -30,7 +30,7 @@ The public-safe IAM hardening pattern is:
 
 ## Kubernetes Security Pattern
 
-The public-safe Kubernetes security pattern is:
+The Kubernetes security pattern is:
 
 - Use namespaces to separate workload ownership.
 - Apply RBAC for operational boundaries.
@@ -43,7 +43,7 @@ The public-safe Kubernetes security pattern is:
 
 ## Vulnerability Management Pattern
 
-The market analysis showed vulnerability management as one of the strongest DevSecOps signals. The public-safe operating pattern is:
+The market analysis showed vulnerability management as one of the strongest DevSecOps signals. The operating pattern is:
 
 1. Collect findings from image, dependency, IaC, and configuration scans.
 2. Normalize severity, affected component, fixed version, exploitability, and workload exposure.
@@ -52,7 +52,7 @@ The market analysis showed vulnerability management as one of the strongest DevS
 5. Track accepted risk with an owner, expiration date, and compensating controls.
 6. Preserve remediation evidence for audit and post-incident review.
 
-See `examples/vulnerability-triage/` for a small sanitized input and output pattern.
+See `examples/vulnerability-triage/` for a small sample input and output pattern.
 
 ## Change Control And Risk Acceptance
 
@@ -77,7 +77,7 @@ Manual review does not scale across many teams and workloads. The public example
 
 ## WAF And Threat Reduction
 
-Production security work included AWS WAF and related security improvements that reduced malicious traffic exposure by more than 90% at a public-safe summary level.
+Production security work included AWS WAF and related security improvements that reduced malicious traffic exposure by more than 90%.
 
 ## AI-Assisted Delivery Governance
 

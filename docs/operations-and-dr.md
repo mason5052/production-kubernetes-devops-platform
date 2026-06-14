@@ -16,7 +16,7 @@ Production DevOps work does not end at deployment. This platform was operated wi
 
 ## Backup And Recovery
 
-The public-safe recovery model included:
+The recovery model included:
 
 - Object storage for backup artifacts.
 - Kubernetes backup and restore planning for selected workloads and configuration.

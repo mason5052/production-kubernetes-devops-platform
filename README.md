@@ -2,9 +2,43 @@
 
 Production DevOps portfolio for Kubernetes platform engineering, AWS infrastructure, Terraform, GitHub Actions, ArgoCD, Docker, Prometheus, Grafana, Alertmanager, CloudWatch, and security automation.
 
-This repository shows how a production platform was designed, delivered, secured, monitored, and operated across cloud infrastructure, Kubernetes workloads, CI/CD, observability, and day-2 operations. The goal is to make the engineering work easy to inspect: what was operated, what improved, and which example artifacts represent the operating model.
+This repository shows how I worked across the full DevSecOps path for a production Kubernetes platform: infrastructure, CI/CD, security gates, GitOps delivery, runtime operations, observability, incident response, and audit evidence.
 
-## Executive Snapshot
+## DevSecOps Operating Model
+
+```mermaid
+flowchart LR
+    Change["Code, config, or IaC change"] --> Review["Review and validation"]
+    Review --> CI["CI pipeline"]
+    CI --> Gates["Security and quality gates"]
+    Gates --> Evidence["Artifact evidence"]
+    Evidence --> GitOps["GitOps promotion"]
+    GitOps --> Runtime["Kubernetes runtime"]
+    Runtime --> Observe["Observability"]
+    Observe --> Respond["Incident, rollback, and risk response"]
+    Respond --> Improve["Follow-up improvements"]
+    Improve -. feedback .-> Change
+
+    Terraform["Terraform / AWS foundation"] --> Gates
+    Terraform --> Runtime
+    Policy["Policy-as-code / RBAC / IAM"] --> Gates
+    Policy --> Runtime
+    WAF["WAF and edge controls"] --> Respond
+```
+
+## Pipeline Ownership Map
+
+| Pipeline area | Production work represented here | Repo evidence |
+|---------------|----------------------------------|---------------|
+| Cloud foundation | AWS infrastructure, environment separation, IAM direction, and cost optimization. | `examples/terraform/`, `docs/architecture.md` |
+| Source to CI | GitHub Actions validation, Docker builds, config checks, image tagging, and deployment handoff. | `examples/github-actions/ci-cd.yml`, `docs/cicd.md` |
+| Security gates | Container scanning, IaC review, SBOM direction, artifact signing/provenance direction, and exception handling. | `examples/supply-chain/`, `examples/vulnerability-triage/` |
+| GitOps delivery | ArgoCD-style desired-state delivery, rollout status checks, and rollback-aware release practices. | `examples/argocd/application.yaml`, `docs/cicd.md` |
+| Kubernetes runtime | Deployments, Services, Jobs, CronJobs, probes, resources, RBAC, and network boundaries. | `examples/kubernetes/`, `examples/policy-as-code/` |
+| Operate and respond | Prometheus, Grafana, Alertmanager, CloudWatch, runbooks, incident triage, WAF tuning, and audit evidence. | `examples/monitoring/`, `docs/observability.md`, `docs/operations-and-dr.md` |
+| AI-era guardrails | Human approval, tool boundaries, audit logging, and policy checks for AI-assisted delivery. | `examples/ai-sdlc-control-plane/` |
+
+## Production Outcomes
 
 | Area | Production summary |
 |------|--------------------|
@@ -28,7 +62,7 @@ This repository shows how a production platform was designed, delivered, secured
 - Extended the operating model toward policy-as-code, supply chain trust, and AI-assisted delivery governance.
 - Supported platform reliability, cost optimization, compliance response, and day-2 operational maturity across cloud and Kubernetes environments.
 
-## Architecture At A Glance
+## Runtime Architecture
 
 ```mermaid
 flowchart LR
@@ -51,7 +85,7 @@ flowchart LR
     Alertmanager --> Incident
 ```
 
-## Platform Layers
+## Platform Layers In Detail
 
 | Layer | Responsibility | Representative work |
 |-------|----------------|---------------------|

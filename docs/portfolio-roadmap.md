@@ -4,8 +4,8 @@ This roadmap separates what this repository already covers from what is intentio
 
 ## Complete Now
 
-| Proof point | Current artifact |
-|-------------|------------------|
+| Production area | Current artifact |
+|-----------------|------------------|
 | Production Kubernetes operating model | `README.md`, `docs/architecture.md`, `examples/kubernetes/` |
 | CI/CD with validation and scan gates | `docs/cicd.md`, `examples/github-actions/ci-cd.yml` |
 | GitOps-style delivery | `examples/argocd/application.yaml` |
@@ -50,7 +50,7 @@ Tracked work:
 - Add secure AI-assisted SDLC reference architecture.
 - Add LLM/tool boundary policy examples.
 - Add architecture decision records for security tradeoffs.
-- Add commerce abuse defense case study from WAF and bot-defense work.
+- Add commerce abuse defense operational write-up from WAF and bot-defense work.
 
 ## 2029 Staff-Level Ownership
 

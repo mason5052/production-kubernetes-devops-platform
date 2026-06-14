@@ -1,6 +1,6 @@
 ---
 name: Roadmap item
-about: Propose a new proof artifact or engineering improvement for this repository
+about: Propose a new production evidence artifact or engineering improvement for this repository
 title: ""
 labels: roadmap
 ---
@@ -11,9 +11,9 @@ labels: roadmap
 
 ## Maintenance Rule
 
-1. What production responsibility does this demonstrate?
+1. What production responsibility does this cover?
 2. What engineering judgment does it make visible?
-3. How does it stay focused on DevOps platform work and public-safe?
+3. How does it stay focused on DevOps platform work and the repository boundary?
 
 ## Acceptance Criteria
 

@@ -12,6 +12,7 @@ This roadmap turns the market analysis into public proof artifacts. It separates
 | Observability and incident response | `docs/observability.md`, `examples/monitoring/prometheus-rule.yaml` |
 | Terraform-based cloud foundation | `examples/terraform/` |
 | Security and governance narrative | `docs/security-and-governance.md` |
+| Policy-as-code guardrails with tests | `examples/policy-as-code/` (Kyverno policies plus `kyverno test` coverage) |
 | Public-safe disclosure boundary | `SECURITY.md`, `docs/public-sanitization.md` |
 
 ## 2026 Public Proof
@@ -20,9 +21,10 @@ Goal: make the repo prove cloud and platform security ownership, not only DevOps
 
 Tracked work:
 
-- Add production-grade Kyverno policy test coverage.
 - Add Terraform IAM least-privilege guardrail examples.
 - Build secure CI supply chain template with SBOM and signing.
+
+Completed: production-grade Kyverno policy test coverage (`examples/policy-as-code/`).
 
 ## 2027 Security Automation
 

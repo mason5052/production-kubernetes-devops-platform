@@ -38,12 +38,13 @@ The intended signal is:
 | IaC | Terraform structure for AWS foundation concepts. |
 | Observability | PrometheusRule example and incident response narrative. |
 | Security governance | IAM, RBAC, WAF, vulnerability remediation, audit evidence, and secrets hygiene. |
+| Policy-as-code | Kyverno admission policies with executable `kyverno test` coverage. |
 
 ## What The Roadmap Adds
 
 The open GitHub issues track the gaps that are most valuable to close next:
 
-- Policy-as-code and admission control test coverage.
+- Terraform and IaC policy guardrails, including least-privilege IAM.
 - Software supply chain evidence: SBOM, signing, provenance, and deploy blocking.
 - Vulnerability triage automation and audit evidence generation.
 - CNAPP/CSPM-style cloud posture reasoning.

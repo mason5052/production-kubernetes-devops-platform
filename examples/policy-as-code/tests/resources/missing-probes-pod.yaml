@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: missing-probes-pod
+  namespace: platform-example
+  labels:
+    platform.example.com/owner: platform-team
+    platform.example.com/service: platform-service
+    platform.example.com/data-classification: internal
+spec:
+  containers:
+    - name: app
+      image: registry.example.internal/platform-service:example
+      securityContext:
+        privileged: false

@@ -17,12 +17,14 @@ spec:
               kinds:
                 - Pod
       validate:
-        message: "Containers should define readiness probes, liveness probes, and CPU or memory requests."
+        message: "Containers must define readiness and liveness probes (with periodSeconds) and CPU and memory requests."
         pattern:
           spec:
             containers:
-              - readinessProbe: "?*"
-                livenessProbe: "?*"
+              - readinessProbe:
+                  periodSeconds: ">0"
+                livenessProbe:
+                  periodSeconds: ">0"
                 resources:
                   requests:
                     memory: "?*"

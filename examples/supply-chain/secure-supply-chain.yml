@@ -39,7 +39,8 @@ jobs:
           echo "Example output: artifacts/sbom.cdx.json"
 
       - name: Scan image with Trivy
-        uses: aquasecurity/trivy-action@master
+        # Pin third-party actions to an immutable commit SHA, not a mutable tag/branch.
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           severity: HIGH,CRITICAL

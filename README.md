@@ -255,7 +255,7 @@ The example files are generic patterns. They exist to show engineering judgment,
 | `examples/kubernetes/network-policy.yaml` | Example service boundary pattern. |
 | `examples/monitoring/prometheus-rule.yaml` | Alert rule pattern for actionable service health monitoring. |
 | `examples/terraform/` | Terraform structure for cloud foundation concepts. |
-| `examples/policy-as-code/` | Kyverno-style admission policies for platform guardrails. |
+| `examples/policy-as-code/` | Kyverno admission policies with executable `kyverno test` coverage (see `examples/policy-as-code/README.md`). |
 | `examples/supply-chain/` | SBOM, vulnerability scan, artifact signing, and provenance workflow pattern. |
 | `examples/vulnerability-triage/` | Sanitized scan triage inputs and risk summary output. |
 | `examples/ai-sdlc-control-plane/` | AI-assisted delivery guardrails, audit logging, and human approval boundaries. |
@@ -278,3 +278,7 @@ The README contains the main story. The `docs/` folder keeps the same material s
 ## Disclosure Boundary
 
 This repository focuses on architecture, operating model, and engineering decisions. Employer source code, customer data, hostnames, IP addresses, account IDs, credentials, Terraform state, kubeconfigs, private topology, and proprietary configuration are not included.
+
+## License
+
+Released under the [Apache License 2.0](LICENSE).

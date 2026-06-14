@@ -1,0 +1,59 @@
+apiVersion: cli.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: platform-baseline-policy-tests
+policies:
+  - ../required-metadata-policy.yaml
+  - ../require-probes-and-resources.yaml
+  - ../disallow-privileged-pods.yaml
+resources:
+  - resources/good-pod.yaml
+  - resources/privileged-pod.yaml
+  - resources/missing-metadata-pod.yaml
+  - resources/missing-probes-pod.yaml
+results:
+  # require-platform-metadata: owner/service/data-classification labels must be present
+  - policy: require-platform-metadata
+    rule: require-owner-service-and-data-classification
+    kind: Pod
+    resources:
+      - good-pod
+      - privileged-pod
+      - missing-probes-pod
+    result: pass
+  - policy: require-platform-metadata
+    rule: require-owner-service-and-data-classification
+    kind: Pod
+    resources:
+      - missing-metadata-pod
+    result: fail
+  # require-probes-and-resources: readiness/liveness probes and CPU/memory requests required
+  - policy: require-probes-and-resources
+    rule: require-container-health-and-resource-controls
+    kind: Pod
+    resources:
+      - good-pod
+      - privileged-pod
+      - missing-metadata-pod
+    result: pass
+  - policy: require-probes-and-resources
+    rule: require-container-health-and-resource-controls
+    kind: Pod
+    resources:
+      - missing-probes-pod
+    result: fail
+  # disallow-privileged-pods: containers must not run privileged
+  - policy: disallow-privileged-pods
+    rule: block-privileged-containers
+    kind: Pod
+    resources:
+      - good-pod
+      - missing-metadata-pod
+      - missing-probes-pod
+    result: pass
+  - policy: disallow-privileged-pods
+    rule: block-privileged-containers
+    kind: Pod
+    resources:
+      - privileged-pod
+    result: fail

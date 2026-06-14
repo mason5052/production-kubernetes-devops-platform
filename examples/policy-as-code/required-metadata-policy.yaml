@@ -1,0 +1,26 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-platform-metadata
+  annotations:
+    policies.kyverno.io/title: Require platform metadata
+    policies.kyverno.io/category: Platform Governance
+    policies.kyverno.io/subject: Pod
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+    - name: require-owner-service-and-data-classification
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        message: "Workloads must include owner, service, and data-classification labels."
+        pattern:
+          metadata:
+            labels:
+              platform.example.com/owner: "?*"
+              platform.example.com/service: "?*"
+              platform.example.com/data-classification: "?*"

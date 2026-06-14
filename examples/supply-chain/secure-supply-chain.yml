@@ -1,0 +1,74 @@
+name: secure-supply-chain-example
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+env:
+  IMAGE_NAME: registry.example.internal/platform-service
+
+jobs:
+  build-scan-attest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      security-events: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set image metadata
+        shell: bash
+        run: |
+          echo "IMAGE_TAG=$(date +%Y%m%d)-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
+          echo "PROVENANCE_SUBJECT=$IMAGE_NAME@sha256:exampledigest" >> "$GITHUB_ENV"
+
+      - name: Build image
+        shell: bash
+        run: docker build -t "$IMAGE_NAME:$IMAGE_TAG" .
+
+      - name: Generate SBOM
+        shell: bash
+        run: |
+          echo "Generate CycloneDX or SPDX SBOM here."
+          echo "Example output: artifacts/sbom.cdx.json"
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+
+      - name: Sign image digest
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          echo "Sign the immutable image digest with a CI identity."
+          echo "Example command: cosign sign --yes $PROVENANCE_SUBJECT"
+
+      - name: Capture provenance
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          cat > artifacts/provenance.json <<'JSON'
+          {
+            "source": "github.example/platform-service",
+            "commit": "example-sha",
+            "workflow": "secure-supply-chain-example",
+            "image_digest": "sha256:exampledigest",
+            "review_required": true
+          }
+          JSON
+
+      - name: Deployment gate
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          echo "Deploy only after build, SBOM, scan, signature, and provenance checks pass."

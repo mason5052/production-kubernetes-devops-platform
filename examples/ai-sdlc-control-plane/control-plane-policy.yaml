@@ -1,0 +1,27 @@
+apiVersion: platform.example.com/v1alpha1
+kind: AISDLCControlPolicy
+metadata:
+  name: ai-assisted-delivery-guardrails
+spec:
+  productionImpactingChanges:
+    requireHumanApproval: true
+    requirePolicyChecks:
+      - kubernetes-admission-baseline
+      - terraform-plan-review
+      - secret-leak-scan
+      - dependency-vulnerability-scan
+  agentBoundaries:
+    allowReadOnlyRepositoryContext: true
+    allowProductionCredentials: false
+    allowDirectClusterAccess: false
+    allowDirectTerraformApply: false
+  auditLogging:
+    capturePromptSummary: true
+    captureGeneratedDiff: true
+    captureReviewerDecision: true
+    captureDeploymentEvidence: true
+  exceptionHandling:
+    requireOwner: true
+    requireReason: true
+    requireExpirationDate: true
+    requireCompensatingControl: true

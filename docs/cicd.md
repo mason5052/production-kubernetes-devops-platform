@@ -8,6 +8,8 @@ The CI/CD model was designed to reduce manual deployment work, improve release c
 - Build immutable container images.
 - Scan images and configuration for known security issues.
 - Publish versioned artifacts with traceable tags.
+- Generate dependency and artifact evidence that can support vulnerability management.
+- Preserve provenance so a deployed image can be traced back to source, workflow, and approval context.
 - Deploy through a controlled Kubernetes rollout.
 - Surface deployment health quickly through rollout checks and monitoring.
 - Preserve rollback paths when a deployment fails.
@@ -46,6 +48,9 @@ sequenceDiagram
 | Unit or smoke tests | Catch basic defects before rollout. |
 | Manifest validation | Catch Kubernetes YAML and configuration errors early. |
 | Container scan | Identify high-risk image vulnerabilities before deployment. |
+| SBOM generation | Preserve dependency inventory for remediation and audit workflows. |
+| Artifact signing | Add a trust signal between source, build workflow, image, and deployment. |
+| Provenance capture | Record source SHA, workflow run, image digest, actor, and deployment handoff. |
 | IaC validation | Reduce Terraform syntax and plan errors before infrastructure changes. |
 | Rollout status | Detect failed or stuck Kubernetes deployments quickly. |
 | Post-deploy checks | Confirm service health after deployment. |
@@ -60,6 +65,22 @@ The public example uses a traceable tag pattern:
 
 This makes it easier to connect a running workload back to a source commit and deployment event.
 
+## Supply Chain Evidence Pattern
+
+The Fortune 500 JD analysis showed that classic CI/CD remains important, but security ownership is the differentiator. A production-grade CI/CD path should therefore keep evidence around the artifact, not only deploy it.
+
+| Evidence | Public-safe pattern |
+|----------|---------------------|
+| Source | Commit SHA, pull request, reviewer, and branch protection context. |
+| Build | Workflow run ID, runner type, dependency lockfile, and reproducible build command. |
+| SBOM | Dependency inventory emitted as CycloneDX or SPDX and stored with the build record. |
+| Vulnerability scan | High and critical findings surfaced before deployment, with exception handling if risk is accepted. |
+| Signature | Image digest signed by the CI identity or an approved release identity. |
+| Provenance | Source, workflow, image digest, and deployment handoff captured for audit and rollback. |
+| Runtime | Kubernetes rollout status, health checks, and post-deploy monitoring linked back to the image digest. |
+
+See `examples/supply-chain/secure-supply-chain.yml` for a sanitized workflow skeleton.
+
 ## Rollback Model
 
 Rollback depends on the deployment path:
@@ -67,6 +88,8 @@ Rollback depends on the deployment path:
 - For GitOps-based delivery, revert or roll back the desired-state commit and let ArgoCD reconcile.
 - For direct Kubernetes deployment, use rollout history and validated previous image tags.
 - For infrastructure changes, review Terraform plans carefully and avoid mixing unrelated changes in the same apply.
+- For signed artifacts, roll back to a previously trusted digest rather than only a mutable tag.
+- For accepted risk exceptions, document who accepted the risk, why, and when the exception expires.
 
 ## Example
 

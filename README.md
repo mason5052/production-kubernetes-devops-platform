@@ -2,7 +2,7 @@
 
 Production DevOps platform case study for Kubernetes, AWS, Terraform, GitHub Actions, ArgoCD, Docker, Prometheus, Grafana, Alertmanager, CloudWatch, and security automation.
 
-This repository shows how a production platform was designed, delivered, secured, monitored, and operated across cloud infrastructure, Kubernetes workloads, CI/CD, observability, and day-2 operations.
+This repository shows how a production platform was designed, delivered, secured, monitored, and operated across cloud infrastructure, Kubernetes workloads, CI/CD, observability, and day-2 operations. It is organized around the DevOps and DevSecOps capabilities that repeatedly appeared in a Fortune 500 JD analysis: cloud, Kubernetes, CI/CD, observability, IAM, vulnerability management, compliance evidence, policy-as-code, supply chain security, and AI-era delivery guardrails.
 
 ## Executive Snapshot
 
@@ -17,6 +17,23 @@ This repository shows how a production platform was designed, delivered, secured
 | Security improvement | Reduced malicious traffic exposure by 90%+ through AWS WAF and security control improvements. |
 | Operational maturity | Improved incident visibility, response time, and audit response speed through monitoring, alerting, evidence, and documentation. |
 
+## Market-Aligned Evidence Map
+
+The repo is structured around a public-source Fortune 500 DevOps/DevSecOps market snapshot of 380 official-verified active postings. The strongest signals were traditional DevOps foundations with a growing security and governance layer.
+
+| Market signal | JD signal | Repo evidence |
+|---------------|-----------|---------------|
+| Cloud platforms | 322/380 postings, 85% | AWS foundation, Terraform structure, cost optimization, IAM examples. |
+| IAM and least privilege | 237/380 postings, 62% | IAM hardening pattern, scoped role examples, audit-ready access boundaries. |
+| Observability | 223/380 postings, 59% | Prometheus, Grafana, Alertmanager, CloudWatch, incident review model. |
+| Incident and on-call ownership | 229/380 postings, 60% | Day-2 operations, rollback flow, runbook and triage patterns. |
+| CI/CD | 181/380 postings, 48% | GitHub Actions pipeline, validation gates, scan gates, deployment handoff. |
+| Kubernetes | 165/380 postings, 43% | Workload model, rollout safety, RBAC, network policy, admission policy examples. |
+| Terraform and IaC | 140/380 postings, 37% | Public-safe Terraform foundation and least-privilege guardrail direction. |
+| Vulnerability management | 119/380 postings, 31% | Trivy gate, risk triage example, remediation evidence pattern. |
+| Compliance and risk | 195/380 compliance mentions, 194/380 risk mentions | Change review, audit evidence, risk acceptance, control mapping roadmap. |
+| AI-era platform/security | 141/380 postings, 37% | AI SDLC control-plane examples for guardrails, audit logging, and human approval. |
+
 ## What This Demonstrates
 
 - Built and operated a production Kubernetes platform rather than only using managed application hosting.
@@ -25,6 +42,7 @@ This repository shows how a production platform was designed, delivered, secured
 - Used GitOps-oriented delivery with ArgoCD-style desired-state configuration for repeatable Kubernetes deployments.
 - Operated production monitoring and incident response with Prometheus, Grafana, Alertmanager, CloudWatch, logs, dashboards, alerts, and runbooks.
 - Improved security posture through IAM hardening, Kubernetes RBAC, vulnerability remediation support, WAF tuning, secrets hygiene, and audit-ready evidence.
+- Demonstrated a roadmap toward policy-as-code, supply chain trust, and AI-assisted delivery governance without exposing private implementation details.
 - Supported platform reliability, cost optimization, compliance response, and day-2 operational maturity across cloud and Kubernetes environments.
 
 ## Architecture At A Glance
@@ -60,6 +78,7 @@ flowchart LR
 | Runtime layer | Deployments, Services, Jobs, CronJobs, application configuration, and health checks. | Supported web services, automation jobs, platform components, and internal services. |
 | Observability layer | Metrics, dashboards, alerts, logs, incident review, and runbooks. | Connected Prometheus, Grafana, Alertmanager, CloudWatch, and logs to production support workflows. |
 | Security layer | IAM least privilege, RBAC, vulnerability scanning, WAF controls, secrets hygiene, and audit evidence. | Improved access boundaries, vulnerability visibility, malicious traffic reduction, and audit response speed. |
+| Governance layer | Policy-as-code, supply chain evidence, risk acceptance, and AI SDLC guardrails. | Public examples show the direction for controls that keep faster delivery auditable. |
 
 ## Kubernetes Operating Model
 
@@ -110,6 +129,8 @@ sequenceDiagram
 | Unit or smoke tests | Catch basic defects before rollout. |
 | Manifest validation | Catch Kubernetes YAML and configuration errors early. |
 | Container scanning | Identify high-risk image vulnerabilities before deployment. |
+| SBOM generation | Preserve dependency visibility for audit and remediation workflows. |
+| Artifact signing and provenance | Connect a released artifact to source, workflow, and approval evidence. |
 | IaC validation | Reduce Terraform syntax and plan errors before infrastructure changes. |
 | Image tagging | Connect deployed images back to source commits and deployment events. |
 | Rollout status | Detect failed or stuck Kubernetes deployments quickly. |
@@ -171,6 +192,10 @@ The security model focused on practical controls that improved production safety
 | WAF and edge security | Tuned AWS WAF controls to reduce malicious traffic exposure. |
 | Secrets hygiene | Kept secrets out of manifests, public artifacts, and source-controlled examples. |
 | Audit support | Improved evidence retrieval for infrastructure, deployment, access, and operational controls. |
+| Change control | Connected source review, deployment evidence, rollback paths, and risk acceptance decisions. |
+| Policy-as-code | Used admission and CI/CD policy examples to show how platform rules can be enforced consistently. |
+| Supply chain trust | Added SBOM, scan, signing, and provenance examples as a roadmap extension to the production delivery model. |
+| AI SDLC guardrails | Added public examples for human approval, audit logging, and tool boundary controls around AI-assisted delivery. |
 
 ### IAM Hardening Pattern
 
@@ -230,6 +255,10 @@ The example files are generic patterns. They exist to show engineering judgment,
 | `examples/kubernetes/network-policy.yaml` | Example service boundary pattern. |
 | `examples/monitoring/prometheus-rule.yaml` | Alert rule pattern for actionable service health monitoring. |
 | `examples/terraform/` | Terraform structure for cloud foundation concepts. |
+| `examples/policy-as-code/` | Kyverno-style admission policies for platform guardrails. |
+| `examples/supply-chain/` | SBOM, vulnerability scan, artifact signing, and provenance workflow pattern. |
+| `examples/vulnerability-triage/` | Sanitized scan triage inputs and risk summary output. |
+| `examples/ai-sdlc-control-plane/` | AI-assisted delivery guardrails, audit logging, and human approval boundaries. |
 
 ## Optional Deep Dives
 
@@ -238,10 +267,12 @@ The README contains the main story. The `docs/` folder keeps the same material s
 | Path | Purpose |
 |------|---------|
 | `docs/architecture.md` | Architecture narrative and platform layers. |
+| `docs/market-alignment.md` | How this repo maps to the Fortune 500 JD skill signals. |
 | `docs/cicd.md` | CI/CD design, gates, deployment flow, rollback model, and validation strategy. |
 | `docs/observability.md` | Monitoring, alerting, dashboard, log, and incident response model. |
 | `docs/security-and-governance.md` | IAM, RBAC, vulnerability, WAF, and audit-readiness controls. |
 | `docs/operations-and-dr.md` | Day-2 operations, runbooks, backup, recovery, and on-call practices. |
+| `docs/portfolio-roadmap.md` | Completed proof points and intentionally tracked roadmap gaps. |
 | `docs/public-sanitization.md` | Disclosure boundary and removed sensitive detail categories. |
 
 ## Disclosure Boundary

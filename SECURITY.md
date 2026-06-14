@@ -25,6 +25,8 @@ All examples use placeholders such as:
 
 These are not real production identifiers.
 
+Example files are design patterns and portfolio evidence. They are not hardened production baselines and should not be copied into a live environment without threat modeling, testing, access review, and organization-specific policy review.
+
 ## Reporting Issues
 
 If a sensitive value is ever found in this repository, remove it immediately, rotate the affected credential if applicable, and rewrite history before publishing or republishing.

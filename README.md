@@ -73,10 +73,3 @@ These outcomes are summarized at a public-safe level from professional productio
 | `docs/operations-and-dr.md` | Day-2 operations, runbooks, backup, recovery, and on-call practices. |
 | `docs/public-sanitization.md` | What was intentionally removed or generalized for public release. |
 | `examples/` | Sanitized example YAML, Terraform, ArgoCD, monitoring, and GitHub Actions snippets. |
-
-## How To Read This Repository
-
-Hiring managers should read this repository as a production platform engineering case study, not as a toy demo. The goal is to show how the platform was designed, deployed, secured, monitored, and operated while protecting confidential employer information.
-
-The examples are intentionally minimal. They exist to communicate engineering judgment, not to expose internal implementation details.
-

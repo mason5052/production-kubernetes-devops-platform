@@ -6,25 +6,9 @@ This repository shows how I worked across the full DevSecOps path for production
 
 ## DevSecOps Operating Model
 
-```mermaid
-flowchart LR
-    Change["Code, config, or IaC change"] --> Review["Review and validation"]
-    Review --> CI["CI pipeline"]
-    CI --> Gates["Security and quality gates"]
-    Gates --> Evidence["Artifact evidence"]
-    Evidence --> GitOps["GitOps promotion"]
-    GitOps --> Runtime["Kubernetes runtime"]
-    Runtime --> Observe["Observability"]
-    Observe --> Respond["Incident, rollback, and risk response"]
-    Respond --> Improve["Follow-up improvements"]
-    Improve -. feedback .-> Change
-
-    Terraform["Terraform / AWS foundation"] --> Gates
-    Terraform --> Runtime
-    Policy["Policy-as-code / RBAC / IAM"] --> Gates
-    Policy --> Runtime
-    WAF["WAF and edge controls"] --> Respond
-```
+<p align="center">
+  <img src="docs/assets/devsecops-operating-model.svg" alt="Production DevSecOps operating model from change review through CI, security gates, artifact evidence, GitOps promotion, Kubernetes runtime, observability, incident response, and continuous improvement." width="100%">
+</p>
 
 ## Pipeline Ownership Map
 
@@ -64,26 +48,9 @@ flowchart LR
 
 ## Runtime Architecture
 
-```mermaid
-flowchart LR
-    Dev["Developer / Pull Request"] --> CI["GitHub Actions CI"]
-    CI --> Test["Unit, lint, config validation"]
-    Test --> Scan["Container and IaC security scan"]
-    Scan --> Image["Docker image build and publish"]
-    Image --> GitOps["GitOps config update"]
-    GitOps --> Argo["ArgoCD sync"]
-    Argo --> K8s["Kubernetes workloads"]
-
-    Terraform["Terraform IaC"] --> AWS["AWS compute, network, storage, IAM"]
-    AWS --> K8s
-
-    K8s --> Metrics["Prometheus metrics"]
-    K8s --> Logs["Centralized logs"]
-    Metrics --> Grafana["Grafana dashboards"]
-    Metrics --> Alertmanager["Alertmanager alerts"]
-    Logs --> Incident["Incident review and runbooks"]
-    Alertmanager --> Incident
-```
+<p align="center">
+  <img src="docs/assets/runtime-architecture.svg" alt="Runtime architecture showing GitHub Actions delivery, Terraform-managed AWS foundation, Kubernetes workloads, metrics, logs, dashboards, alerts, and incident review." width="100%">
+</p>
 
 ## Platform Layers In Detail
 
@@ -114,28 +81,9 @@ The platform used Kubernetes as the runtime foundation for production applicatio
 
 The CI/CD model was designed to reduce manual deployment work, improve release consistency, and add security checks before production rollout.
 
-```mermaid
-sequenceDiagram
-    participant Dev as Developer
-    participant Git as Git Repository
-    participant CI as GitHub Actions
-    participant Scan as Security Gates
-    participant Reg as Container Registry
-    participant CD as ArgoCD or Deploy Step
-    participant K8s as Kubernetes
-    participant Ops as Monitoring
-
-    Dev->>Git: Open pull request
-    Git->>CI: Trigger validation
-    CI->>CI: Run tests and configuration checks
-    CI->>Scan: Run container and IaC scans
-    Scan-->>CI: Pass or fail gate
-    CI->>Reg: Publish tagged image
-    CI->>CD: Update desired state or deploy manifest
-    CD->>K8s: Apply rollout
-    K8s-->>CD: Report rollout status
-    K8s->>Ops: Emit metrics and logs
-```
+<p align="center">
+  <img src="docs/assets/cicd-release-flow.svg" alt="CI/CD release flow showing pull request, validation, test checks, security scans, image publishing, GitOps update, Kubernetes rollout, and monitoring." width="100%">
+</p>
 
 ### Standard Pipeline Gates
 
@@ -246,16 +194,9 @@ Production DevOps work continued after deployment through reliability, incident 
 | Runbook maintenance | Keep common recovery steps repeatable and easy to follow under pressure. |
 | Cost review | Reduce waste by reviewing usage, instance sizing, and managed service alternatives. |
 
-```mermaid
-flowchart TD
-    Alert["Alert or user report"] --> Triage["Triage severity and scope"]
-    Triage --> Recent["Check recent deployments and infrastructure changes"]
-    Recent --> Metrics["Review metrics and dashboards"]
-    Metrics --> Logs["Review logs and failing workloads"]
-    Logs --> Mitigate["Mitigate or roll back"]
-    Mitigate --> Verify["Verify recovery"]
-    Verify --> Review["Document cause and follow-up actions"]
-```
+<p align="center">
+  <img src="docs/assets/day2-operations-recovery.svg" alt="Day-2 operations and recovery loop from alert or user report through triage, recent change review, metrics, logs, mitigation, recovery verification, documentation, and follow-up improvement." width="100%">
+</p>
 
 Recovery practices included backup planning, selected restore validation, rollback documentation, and operational evidence needed for incident review and audit support.
 

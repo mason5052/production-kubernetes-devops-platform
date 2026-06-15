@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Runtime architecture</title>
+  <desc id="desc">A runtime architecture showing GitHub Actions delivery, Terraform-managed AWS foundation, Kubernetes workloads, metrics, logs, dashboards, alerts, and incident review.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#335c81" />
+    </marker>
+    <style>
+      .canvas { fill: #ffffff; }
+      .title { fill: #172033; font: 700 28px "Segoe UI", Arial, sans-serif; }
+      .subtitle { fill: #536173; font: 400 15px "Segoe UI", Arial, sans-serif; }
+      .lane-title { fill: #2f5d8c; font: 700 13px "Segoe UI", Arial, sans-serif; letter-spacing: .4px; }
+      .lane { fill: #fbfcfe; stroke: #d5dde8; stroke-width: 1.2; rx: 8; }
+      .node { fill: #f7f9fc; stroke: #a9b8cc; stroke-width: 1.5; rx: 8; }
+      .node-blue { fill: #eef5ff; stroke: #6c9bd2; }
+      .node-green { fill: #eef8f3; stroke: #58a77a; }
+      .node-gold { fill: #fff7e8; stroke: #d7a644; }
+      .label { fill: #172033; font: 700 15px "Segoe UI", Arial, sans-serif; }
+      .small { fill: #536173; font: 400 12.5px "Segoe UI", Arial, sans-serif; }
+      .line { fill: none; stroke: #335c81; stroke-width: 2.2; marker-end: url(#arrow); }
+      .soft-line { fill: none; stroke: #7a8ca3; stroke-width: 1.8; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="canvas" width="1200" height="500" />
+  <text class="title" x="40" y="52">Runtime Architecture</text>
+  <text class="subtitle" x="40" y="78">Delivery automation, cloud foundation, Kubernetes runtime, and observability connected as one operating system.</text>
+
+  <rect class="lane" x="40" y="112" width="1120" height="104" />
+  <text class="lane-title" x="62" y="140">SOURCE TO DELIVERY</text>
+  <rect class="node node-blue" x="62" y="156" width="138" height="42" />
+  <text class="label" x="84" y="182">Pull request</text>
+  <rect class="node" x="238" y="156" width="150" height="42" />
+  <text class="label" x="262" y="182">GitHub Actions</text>
+  <rect class="node" x="426" y="156" width="162" height="42" />
+  <text class="label" x="450" y="182">Test and scan</text>
+  <rect class="node" x="626" y="156" width="164" height="42" />
+  <text class="label" x="650" y="182">Image publish</text>
+  <rect class="node node-green" x="828" y="156" width="152" height="42" />
+  <text class="label" x="864" y="182">GitOps sync</text>
+  <path class="line" d="M 200 177 H 238" />
+  <path class="line" d="M 388 177 H 426" />
+  <path class="line" d="M 588 177 H 626" />
+  <path class="line" d="M 790 177 H 828" />
+
+  <rect class="lane" x="40" y="246" width="530" height="184" />
+  <text class="lane-title" x="62" y="274">AWS FOUNDATION</text>
+  <rect class="node node-gold" x="62" y="292" width="150" height="50" />
+  <text class="label" x="88" y="315">Terraform</text>
+  <text class="small" x="88" y="334">IaC structure</text>
+  <rect class="node" x="252" y="292" width="126" height="50" />
+  <text class="label" x="286" y="315">Network</text>
+  <text class="small" x="282" y="334">routing, LB</text>
+  <rect class="node" x="418" y="292" width="122" height="50" />
+  <text class="label" x="450" y="315">IAM</text>
+  <text class="small" x="442" y="334">boundaries</text>
+  <rect class="node" x="252" y="362" width="126" height="50" />
+  <text class="label" x="288" y="385">Storage</text>
+  <text class="small" x="284" y="404">state, data</text>
+  <rect class="node" x="418" y="362" width="122" height="50" />
+  <text class="label" x="452" y="385">WAF</text>
+  <text class="small" x="444" y="404">edge control</text>
+  <path class="line" d="M 212 317 H 252" />
+  <path class="line" d="M 378 317 H 418" />
+  <path class="line" d="M 315 342 V 362" />
+  <path class="line" d="M 479 342 V 362" />
+
+  <rect class="lane" x="610" y="246" width="550" height="184" />
+  <text class="lane-title" x="632" y="274">KUBERNETES AND OPERATIONS</text>
+  <rect class="node node-green" x="632" y="292" width="156" height="50" />
+  <text class="label" x="660" y="315">Workloads</text>
+  <text class="small" x="660" y="334">apps, jobs, services</text>
+  <rect class="node" x="828" y="292" width="130" height="50" />
+  <text class="label" x="860" y="315">Metrics</text>
+  <text class="small" x="850" y="334">Prometheus</text>
+  <rect class="node" x="998" y="292" width="130" height="50" />
+  <text class="label" x="1034" y="315">Logs</text>
+  <text class="small" x="1026" y="334">events, traces</text>
+  <rect class="node" x="828" y="362" width="130" height="50" />
+  <text class="label" x="852" y="385">Dashboards</text>
+  <text class="small" x="860" y="404">Grafana</text>
+  <rect class="node" x="998" y="362" width="130" height="50" />
+  <text class="label" x="1030" y="385">Alerts</text>
+  <text class="small" x="1018" y="404">Alertmanager</text>
+  <path class="line" d="M 788 317 H 828" />
+  <path class="line" d="M 958 317 H 998" />
+  <path class="line" d="M 893 342 V 362" />
+  <path class="line" d="M 1063 342 V 362" />
+
+  <path class="soft-line" d="M 904 198 C 900 230, 762 244, 710 292" />
+  <path class="soft-line" d="M 479 412 C 610 462, 962 458, 1063 412" />
+</svg>

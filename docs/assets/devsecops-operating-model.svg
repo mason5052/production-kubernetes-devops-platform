@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Production DevSecOps operating model</title>
+  <desc id="desc">A production DevSecOps pipeline from change review through CI, security gates, artifact evidence, GitOps promotion, Kubernetes runtime, observability, incident response, and continuous improvement.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#335c81" />
+    </marker>
+    <marker id="arrow-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a8ca3" />
+    </marker>
+    <style>
+      .canvas { fill: #ffffff; }
+      .title { fill: #172033; font: 700 28px "Segoe UI", Arial, sans-serif; }
+      .subtitle { fill: #536173; font: 400 15px "Segoe UI", Arial, sans-serif; }
+      .label { fill: #172033; font: 700 16px "Segoe UI", Arial, sans-serif; }
+      .small { fill: #536173; font: 400 13px "Segoe UI", Arial, sans-serif; }
+      .node { fill: #f7f9fc; stroke: #a9b8cc; stroke-width: 1.5; rx: 8; }
+      .node-blue { fill: #eef5ff; stroke: #6c9bd2; }
+      .node-green { fill: #eef8f3; stroke: #58a77a; }
+      .node-gold { fill: #fff7e8; stroke: #d7a644; }
+      .node-red { fill: #fff1f1; stroke: #d77272; }
+      .lane { fill: #fbfcfe; stroke: #d5dde8; stroke-width: 1.2; rx: 8; }
+      .line { fill: none; stroke: #335c81; stroke-width: 2.2; marker-end: url(#arrow); }
+      .soft-line { fill: none; stroke: #7a8ca3; stroke-width: 1.8; marker-end: url(#arrow-soft); }
+      .feedback { fill: none; stroke: #7a8ca3; stroke-width: 1.8; stroke-dasharray: 8 7; marker-end: url(#arrow-soft); }
+      .section { fill: #2f5d8c; font: 700 13px "Segoe UI", Arial, sans-serif; letter-spacing: .4px; }
+    </style>
+  </defs>
+
+  <rect class="canvas" width="1200" height="430" />
+  <text class="title" x="40" y="52">Production DevSecOps Operating Model</text>
+  <text class="subtitle" x="40" y="78">How infrastructure, delivery, security, runtime operations, and evidence flow together in this portfolio.</text>
+
+  <text class="section" x="44" y="118">DELIVERY PATH</text>
+  <rect class="node node-blue" x="40" y="134" width="124" height="72" />
+  <text class="label" x="62" y="162">Change</text>
+  <text class="small" x="62" y="184">code, config, IaC</text>
+
+  <rect class="node" x="190" y="134" width="124" height="72" />
+  <text class="label" x="216" y="162">Review</text>
+  <text class="small" x="212" y="184">validation</text>
+
+  <rect class="node" x="340" y="134" width="124" height="72" />
+  <text class="label" x="372" y="162">CI</text>
+  <text class="small" x="362" y="184">build and test</text>
+
+  <rect class="node node-red" x="490" y="134" width="134" height="72" />
+  <text class="label" x="520" y="162">Security</text>
+  <text class="small" x="516" y="184">scan gates</text>
+
+  <rect class="node node-gold" x="650" y="134" width="136" height="72" />
+  <text class="label" x="684" y="162">Evidence</text>
+  <text class="small" x="676" y="184">SBOM, audit trail</text>
+
+  <rect class="node node-green" x="812" y="134" width="136" height="72" />
+  <text class="label" x="856" y="162">GitOps</text>
+  <text class="small" x="840" y="184">promotion</text>
+
+  <rect class="node node-green" x="974" y="134" width="146" height="72" />
+  <text class="label" x="1014" y="162">Runtime</text>
+  <text class="small" x="1000" y="184">Kubernetes ops</text>
+
+  <path class="line" d="M 164 170 H 190" />
+  <path class="line" d="M 314 170 H 340" />
+  <path class="line" d="M 464 170 H 490" />
+  <path class="line" d="M 624 170 H 650" />
+  <path class="line" d="M 786 170 H 812" />
+  <path class="line" d="M 948 170 H 974" />
+
+  <text class="section" x="44" y="250">CONTROL PLANE</text>
+  <rect class="lane" x="40" y="266" width="260" height="92" />
+  <text class="label" x="62" y="294">Terraform / AWS</text>
+  <text class="small" x="62" y="318">networking, compute, storage,</text>
+  <text class="small" x="62" y="338">load balancing, cost controls</text>
+
+  <rect class="lane" x="326" y="266" width="248" height="92" />
+  <text class="label" x="348" y="294">IAM / RBAC / Policy</text>
+  <text class="small" x="348" y="318">least privilege, admission rules,</text>
+  <text class="small" x="348" y="338">secrets and access boundaries</text>
+
+  <rect class="lane" x="600" y="266" width="248" height="92" />
+  <text class="label" x="622" y="294">WAF / Risk Response</text>
+  <text class="small" x="622" y="318">edge controls, triage, rollback,</text>
+  <text class="small" x="622" y="338">risk acceptance evidence</text>
+
+  <rect class="lane" x="874" y="266" width="246" height="92" />
+  <text class="label" x="896" y="294">AI Delivery Guardrails</text>
+  <text class="small" x="896" y="318">human approval, logging, tool</text>
+  <text class="small" x="896" y="338">boundaries, policy checks</text>
+
+  <path class="soft-line" d="M 170 266 C 230 230, 410 222, 557 206" />
+  <path class="soft-line" d="M 450 266 C 486 232, 520 218, 557 206" />
+  <path class="soft-line" d="M 724 266 C 800 232, 940 222, 1047 206" />
+  <path class="soft-line" d="M 997 266 C 970 236, 938 220, 880 206" />
+
+  <rect class="node node-blue" x="880" y="382" width="126" height="34" />
+  <text class="small" x="908" y="404">Observability</text>
+  <rect class="node node-red" x="1026" y="382" width="132" height="34" />
+  <text class="small" x="1044" y="404">Incident response</text>
+  <path class="line" d="M 1047 206 C 1047 258, 942 324, 942 382" />
+  <path class="line" d="M 1006 399 H 1026" />
+  <path class="feedback" d="M 1026 399 C 710 426, 274 414, 102 206" />
+</svg>

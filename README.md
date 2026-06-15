@@ -1,8 +1,8 @@
-# Production DevOps Portfolio: Kubernetes Platform Engineering
+# Production DevOps Portfolio: Cloud Platform and DevSecOps Engineering
 
-Production DevOps portfolio for Kubernetes platform engineering, AWS infrastructure, Terraform, GitHub Actions, ArgoCD, Docker, Prometheus, Grafana, Alertmanager, CloudWatch, and security automation.
+Production DevOps portfolio for cloud platform engineering across AWS infrastructure, Terraform, Kubernetes, CI/CD, GitOps, Docker, observability, incident response, and security automation.
 
-This repository shows how I worked across the full DevSecOps path for a production Kubernetes platform: infrastructure, CI/CD, security gates, GitOps delivery, runtime operations, observability, incident response, and audit evidence.
+This repository shows how I worked across the full DevSecOps path for production cloud and Kubernetes platforms: infrastructure, CI/CD, security gates, GitOps delivery, runtime operations, observability, incident response, and audit evidence.
 
 ## DevSecOps Operating Model
 
@@ -53,7 +53,7 @@ flowchart LR
 
 ## Production Responsibilities
 
-- Built and operated a production Kubernetes platform rather than only using managed application hosting.
+- Built and operated production cloud and Kubernetes platform capabilities rather than only using managed application hosting.
 - Standardized cloud infrastructure provisioning with Terraform modules for compute, networking, load balancing, storage, IAM, and environment separation.
 - Designed CI/CD paths with GitHub Actions, Docker image builds, validation gates, vulnerability scanning, deployment checks, and controlled rollouts.
 - Used GitOps-oriented delivery with ArgoCD-style desired-state configuration for repeatable Kubernetes deployments.

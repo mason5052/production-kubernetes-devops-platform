@@ -1,103 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
-  <title id="title">Production DevSecOps operating model</title>
-  <desc id="desc">A production DevSecOps pipeline from change review through CI, security gates, artifact evidence, GitOps promotion, Kubernetes runtime, observability, incident response, and continuous improvement.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 446" role="img" aria-labelledby="t d" width="100%">
+  <title id="t">DevSecOps operating model</title>
+  <desc id="d">A four-phase production DevSecOps loop: build and review, secure, deliver, operate and improve, with a continuous feedback arc and a cross-cutting controls band feeding the secure, deliver, and operate phases.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#335c81" />
-    </marker>
-    <marker id="arrow-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a8ca3" />
-    </marker>
     <style>
-      .canvas { fill: #ffffff; }
-      .title { fill: #172033; font: 700 28px "Segoe UI", Arial, sans-serif; }
-      .subtitle { fill: #536173; font: 400 15px "Segoe UI", Arial, sans-serif; }
-      .label { fill: #172033; font: 700 16px "Segoe UI", Arial, sans-serif; }
-      .small { fill: #536173; font: 400 13px "Segoe UI", Arial, sans-serif; }
-      .node { fill: #f7f9fc; stroke: #a9b8cc; stroke-width: 1.5; rx: 8; }
-      .node-blue { fill: #eef5ff; stroke: #6c9bd2; }
-      .node-green { fill: #eef8f3; stroke: #58a77a; }
-      .node-gold { fill: #fff7e8; stroke: #d7a644; }
-      .node-red { fill: #fff1f1; stroke: #d77272; }
-      .lane { fill: #fbfcfe; stroke: #d5dde8; stroke-width: 1.2; rx: 8; }
-      .line { fill: none; stroke: #335c81; stroke-width: 2.2; marker-end: url(#arrow); }
-      .soft-line { fill: none; stroke: #7a8ca3; stroke-width: 1.8; marker-end: url(#arrow-soft); }
-      .feedback { fill: none; stroke: #7a8ca3; stroke-width: 1.8; stroke-dasharray: 8 7; marker-end: url(#arrow-soft); }
-      .section { fill: #2f5d8c; font: 700 13px "Segoe UI", Arial, sans-serif; letter-spacing: .4px; }
+      text{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .t-title{font-size:24px;font-weight:600;fill:#1f2328}
+      .t-phase{font-size:15px;font-weight:600}
+      .t-step{font-size:13px;font-weight:600;fill:#1f2328}
+      .t-step-d{font-size:13px;font-weight:400;fill:#656d76}
+      .t-found{font-size:12px;font-weight:600;fill:#656d76;letter-spacing:1.2px}
+      .t-fb{font-size:12px;font-weight:600;letter-spacing:.4px;fill:#8957e5}
+      .card{fill:#f6f8fa;stroke:#d0d7de;stroke-width:1}
+      .pill{fill:#ffffff;stroke:#d0d7de;stroke-width:1}
+      .found{fill:#eef1f5;stroke:#d0d7de;stroke-width:1}
+      .p-build{fill:#ddeefc;stroke:#54aeff;stroke-width:1.5}
+      .p-secure{fill:#fbe9c7;stroke:#d4a72c;stroke-width:1.5}
+      .p-deliver{fill:#e7ddfb;stroke:#a371f7;stroke-width:1.5}
+      .p-operate{fill:#d7f0de;stroke:#3fb950;stroke-width:1.5}
+      .tt-build{fill:#0a3069}.tt-secure{fill:#7a4f08}.tt-deliver{fill:#512a97}.tt-operate{fill:#1a5e2e}
+      .edge{fill:none;stroke:#57606a;stroke-width:2;marker-end:url(#ah)}
+      .edge-d{fill:none;stroke:#8b949e;stroke-width:1.8;stroke-dasharray:6 6;marker-end:url(#ahd)}
+      .fb{fill:none;stroke:#8957e5;stroke-width:2;stroke-dasharray:7 6;marker-end:url(#ahf)}
+      .ah{fill:#57606a}.ahd{fill:#8b949e}.ahf{fill:#8957e5}
+      @media (prefers-color-scheme: dark){
+        .t-title{fill:#e6edf3}.t-step{fill:#e6edf3}.t-step-d{fill:#8b949e}.t-found{fill:#8b949e}
+        .card{fill:#161b22;stroke:#30363d}.pill{fill:#0d1117;stroke:#30363d}.found{fill:#1c2128;stroke:#30363d}
+        .p-build{fill:#0d2740;stroke:#1f6feb}.p-secure{fill:#332810;stroke:#bb8009}.p-deliver{fill:#21183c;stroke:#a371f7}.p-operate{fill:#0f2e1a;stroke:#2ea043}
+        .tt-build{fill:#9cc7ff}.tt-secure{fill:#e0b341}.tt-deliver{fill:#ccb3ff}.tt-operate{fill:#7ee787}
+        .edge{stroke:#8b949e}.ah{fill:#8b949e}
+        .fb{stroke:#bc8cff}.ahf{fill:#bc8cff}.t-fb{fill:#bc8cff}
+      }
     </style>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path class="ah" d="M0,0 L9,4.5 L0,9 Z"/></marker>
+    <marker id="ahd" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path class="ahd" d="M0,0 L9,4.5 L0,9 Z"/></marker>
+    <marker id="ahf" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path class="ahf" d="M0,0 L9,4.5 L0,9 Z"/></marker>
   </defs>
 
-  <rect class="canvas" width="1200" height="430" />
-  <text class="title" x="40" y="52">Production DevSecOps Operating Model</text>
-  <text class="subtitle" x="40" y="78">How infrastructure, delivery, security, runtime operations, and evidence flow together in this portfolio.</text>
+  <rect class="card" x="4" y="4" width="1192" height="438" rx="16"/>
+  <text class="t-title" x="600" y="32" text-anchor="middle">DevSecOps Operating Model</text>
 
-  <text class="section" x="44" y="118">DELIVERY PATH</text>
-  <rect class="node node-blue" x="40" y="134" width="124" height="72" />
-  <text class="label" x="62" y="162">Change</text>
-  <text class="small" x="62" y="184">code, config, IaC</text>
+  <text class="t-fb" x="600" y="66" text-anchor="middle">continuous feedback</text>
+  <path class="fb" d="M 1041 124 C 860 42, 340 42, 159 124"/>
 
-  <rect class="node" x="190" y="134" width="124" height="72" />
-  <text class="label" x="216" y="162">Review</text>
-  <text class="small" x="212" y="184">validation</text>
+  <g>
+    <rect class="p-build" x="32" y="124" width="254" height="150" rx="12"/>
+    <text class="t-phase tt-build" x="48" y="148">1 · Build &amp; review</text>
+    <rect class="pill" x="46" y="162" width="226" height="30" rx="8"/><text class="t-step" x="58" y="182">Change<tspan class="t-step-d"> · code, config, IaC</tspan></text>
+    <rect class="pill" x="46" y="200" width="226" height="30" rx="8"/><text class="t-step" x="58" y="220">Review<tspan class="t-step-d"> · validation</tspan></text>
+    <rect class="pill" x="46" y="238" width="226" height="30" rx="8"/><text class="t-step" x="58" y="258">CI<tspan class="t-step-d"> · build &amp; test</tspan></text>
 
-  <rect class="node" x="340" y="134" width="124" height="72" />
-  <text class="label" x="372" y="162">CI</text>
-  <text class="small" x="362" y="184">build and test</text>
+    <rect class="p-secure" x="326" y="124" width="254" height="150" rx="12"/>
+    <text class="t-phase tt-secure" x="342" y="148">2 · Secure</text>
+    <rect class="pill" x="340" y="162" width="226" height="30" rx="8"/><text class="t-step" x="352" y="182">Security gates<tspan class="t-step-d"> · scan, IaC</tspan></text>
+    <rect class="pill" x="340" y="200" width="226" height="30" rx="8"/><text class="t-step" x="352" y="220">Evidence<tspan class="t-step-d"> · SBOM, signing</tspan></text>
 
-  <rect class="node node-red" x="490" y="134" width="134" height="72" />
-  <text class="label" x="520" y="162">Security</text>
-  <text class="small" x="516" y="184">scan gates</text>
+    <rect class="p-deliver" x="620" y="124" width="254" height="150" rx="12"/>
+    <text class="t-phase tt-deliver" x="636" y="148">3 · Deliver</text>
+    <rect class="pill" x="634" y="162" width="226" height="30" rx="8"/><text class="t-step" x="646" y="182">GitOps<tspan class="t-step-d"> · desired state</tspan></text>
+    <rect class="pill" x="634" y="200" width="226" height="30" rx="8"/><text class="t-step" x="646" y="220">Runtime<tspan class="t-step-d"> · K8s rollout</tspan></text>
 
-  <rect class="node node-gold" x="650" y="134" width="136" height="72" />
-  <text class="label" x="684" y="162">Evidence</text>
-  <text class="small" x="676" y="184">SBOM, audit trail</text>
+    <rect class="p-operate" x="914" y="124" width="254" height="150" rx="12"/>
+    <text class="t-phase tt-operate" x="930" y="148">4 · Operate &amp; improve</text>
+    <rect class="pill" x="928" y="162" width="226" height="30" rx="8"/><text class="t-step" x="940" y="182">Observability<tspan class="t-step-d"> · signals</tspan></text>
+    <rect class="pill" x="928" y="200" width="226" height="30" rx="8"/><text class="t-step" x="940" y="220">Incident<tspan class="t-step-d"> · triage, rollback</tspan></text>
+    <rect class="pill" x="928" y="238" width="226" height="30" rx="8"/><text class="t-step" x="940" y="258">Improve<tspan class="t-step-d"> · follow-ups</tspan></text>
+  </g>
 
-  <rect class="node node-green" x="812" y="134" width="136" height="72" />
-  <text class="label" x="856" y="162">GitOps</text>
-  <text class="small" x="840" y="184">promotion</text>
+  <path class="edge" d="M 286 199 H 322"/>
+  <path class="edge" d="M 580 199 H 616"/>
+  <path class="edge" d="M 874 199 H 910"/>
 
-  <rect class="node node-green" x="974" y="134" width="146" height="72" />
-  <text class="label" x="1014" y="162">Runtime</text>
-  <text class="small" x="1000" y="184">Kubernetes ops</text>
+  <rect class="found" x="32" y="318" width="1136" height="86" rx="12"/>
+  <text class="t-found" x="48" y="342">CROSS-CUTTING CONTROLS</text>
+  <rect class="pill" x="48" y="352" width="352" height="38" rx="8"/><text class="t-step" x="62" y="376">Terraform / AWS<tspan class="t-step-d"> · compute, network, IAM, cost</tspan></text>
+  <rect class="pill" x="424" y="352" width="352" height="38" rx="8"/><text class="t-step" x="438" y="376">Policy-as-code / RBAC / IAM<tspan class="t-step-d"> · least privilege</tspan></text>
+  <rect class="pill" x="800" y="352" width="336" height="38" rx="8"/><text class="t-step" x="814" y="376">WAF / edge<tspan class="t-step-d"> · filtering, abuse defense</tspan></text>
 
-  <path class="line" d="M 164 170 H 190" />
-  <path class="line" d="M 314 170 H 340" />
-  <path class="line" d="M 464 170 H 490" />
-  <path class="line" d="M 624 170 H 650" />
-  <path class="line" d="M 786 170 H 812" />
-  <path class="line" d="M 948 170 H 974" />
-
-  <text class="section" x="44" y="250">CONTROL PLANE</text>
-  <rect class="lane" x="40" y="266" width="260" height="92" />
-  <text class="label" x="62" y="294">Terraform / AWS</text>
-  <text class="small" x="62" y="318">networking, compute, storage,</text>
-  <text class="small" x="62" y="338">load balancing, cost controls</text>
-
-  <rect class="lane" x="326" y="266" width="248" height="92" />
-  <text class="label" x="348" y="294">IAM / RBAC / Policy</text>
-  <text class="small" x="348" y="318">least privilege, admission rules,</text>
-  <text class="small" x="348" y="338">secrets and access boundaries</text>
-
-  <rect class="lane" x="600" y="266" width="248" height="92" />
-  <text class="label" x="622" y="294">WAF / Risk Response</text>
-  <text class="small" x="622" y="318">edge controls, triage, rollback,</text>
-  <text class="small" x="622" y="338">risk acceptance evidence</text>
-
-  <rect class="lane" x="874" y="266" width="246" height="92" />
-  <text class="label" x="896" y="294">AI Delivery Guardrails</text>
-  <text class="small" x="896" y="318">human approval, logging, tool</text>
-  <text class="small" x="896" y="338">boundaries, policy checks</text>
-
-  <path class="soft-line" d="M 170 266 C 230 230, 410 222, 557 206" />
-  <path class="soft-line" d="M 450 266 C 486 232, 520 218, 557 206" />
-  <path class="soft-line" d="M 724 266 C 800 232, 940 222, 1047 206" />
-  <path class="soft-line" d="M 997 266 C 970 236, 938 220, 880 206" />
-
-  <rect class="node node-blue" x="880" y="382" width="126" height="34" />
-  <text class="small" x="908" y="404">Observability</text>
-  <rect class="node node-red" x="1026" y="382" width="132" height="34" />
-  <text class="small" x="1044" y="404">Incident response</text>
-  <path class="line" d="M 1047 206 C 1047 258, 942 324, 942 382" />
-  <path class="line" d="M 1006 399 H 1026" />
-  <path class="feedback" d="M 1026 399 C 710 426, 274 414, 102 206" />
+  <path class="edge-d" d="M 453 318 V 278"/>
+  <path class="edge-d" d="M 747 318 V 278"/>
+  <path class="edge-d" d="M 1041 318 V 278"/>
 </svg>

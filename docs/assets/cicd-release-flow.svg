@@ -1,96 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">CI/CD and release flow</title>
-  <desc id="desc">A CI/CD release flow showing pull request, validation, test checks, security scans, image publishing, GitOps update, Kubernetes rollout, and monitoring.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="t d" width="100%">
+  <title id="t">CI/CD and release flow</title>
+  <desc id="d">An eight-step CI/CD release flow: pull request, validation, tests, security scan gate, artifact, GitOps, rollout, and operations, arranged as a serpentine pipeline that produces evidence at each step.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#335c81" />
-    </marker>
     <style>
-      .canvas { fill: #ffffff; }
-      .title { fill: #172033; font: 700 28px "Segoe UI", Arial, sans-serif; }
-      .subtitle { fill: #536173; font: 400 15px "Segoe UI", Arial, sans-serif; }
-      .node { fill: #f7f9fc; stroke: #a9b8cc; stroke-width: 1.5; rx: 8; }
-      .node-blue { fill: #eef5ff; stroke: #6c9bd2; }
-      .node-green { fill: #eef8f3; stroke: #58a77a; }
-      .node-red { fill: #fff1f1; stroke: #d77272; }
-      .num { fill: #ffffff; font: 700 14px "Segoe UI", Arial, sans-serif; }
-      .num-bg { fill: #2f5d8c; }
-      .label { fill: #172033; font: 700 15px "Segoe UI", Arial, sans-serif; }
-      .small { fill: #536173; font: 400 12.5px "Segoe UI", Arial, sans-serif; }
-      .line { fill: none; stroke: #335c81; stroke-width: 2.2; marker-end: url(#arrow); }
-      .soft { fill: #fbfcfe; stroke: #d5dde8; stroke-width: 1.2; rx: 8; }
+      text{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .t-title{font-size:24px;font-weight:600;fill:#1f2328}
+      .t-sub{font-size:13px;font-weight:400;fill:#656d76}
+      .t-step{font-size:14px;font-weight:600;fill:#1f2328}
+      .t-step-d{font-size:12.5px;font-weight:400;fill:#656d76}
+      .t-num{font-size:13px;font-weight:600;fill:#ffffff}
+      .card{fill:#f6f8fa;stroke:#d0d7de;stroke-width:1}
+      .pill{fill:#ffffff;stroke:#d0d7de;stroke-width:1}
+      .n-blue{fill:#ddeefc;stroke:#54aeff;stroke-width:1.4}
+      .n-amber{fill:#fbe9c7;stroke:#d4a72c;stroke-width:1.6}
+      .n-purple{fill:#e7ddfb;stroke:#a371f7;stroke-width:1.4}
+      .n-green{fill:#d7f0de;stroke:#3fb950;stroke-width:1.4}
+      .num-bg{fill:#57606a}
+      .edge{fill:none;stroke:#57606a;stroke-width:2;marker-end:url(#ah)}
+      .ah{fill:#57606a}
+      @media (prefers-color-scheme: dark){
+        .t-title{fill:#e6edf3}.t-sub{fill:#8b949e}.t-step{fill:#e6edf3}.t-step-d{fill:#8b949e}
+        .card{fill:#161b22;stroke:#30363d}.pill{fill:#0d1117;stroke:#30363d}
+        .n-blue{fill:#0d2740;stroke:#1f6feb}.n-amber{fill:#332810;stroke:#bb8009}.n-purple{fill:#21183c;stroke:#a371f7}.n-green{fill:#0f2e1a;stroke:#2ea043}
+        .num-bg{fill:#6e7681}
+        .edge{stroke:#8b949e}.ah{fill:#8b949e}
+      }
     </style>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path class="ah" d="M0,0 L9,4.5 L0,9 Z"/></marker>
   </defs>
 
-  <rect class="canvas" width="1200" height="360" />
-  <text class="title" x="40" y="52">CI/CD And Release Flow</text>
-  <text class="subtitle" x="40" y="78">Release work is represented as gated evidence, not just automation that moves code.</text>
+  <rect class="card" x="4" y="4" width="1192" height="352" rx="16"/>
+  <text class="t-title" x="600" y="32" text-anchor="middle">CI/CD and Release Flow</text>
+  <text class="t-sub" x="600" y="54" text-anchor="middle">A gated, evidence-producing release flow, not just automation that moves code.</text>
 
-  <rect class="soft" x="40" y="112" width="1120" height="154" />
-  <g>
-    <rect class="node node-blue" x="62" y="148" width="118" height="76" />
-    <circle class="num-bg" cx="84" cy="166" r="14" />
-    <text class="num" x="80" y="171">1</text>
-    <text class="label" x="94" y="184">Pull request</text>
-    <text class="small" x="94" y="206">review scope</text>
-  </g>
-  <g>
-    <rect class="node" x="206" y="148" width="118" height="76" />
-    <circle class="num-bg" cx="228" cy="166" r="14" />
-    <text class="num" x="224" y="171">2</text>
-    <text class="label" x="238" y="184">Validation</text>
-    <text class="small" x="238" y="206">lint, config</text>
-  </g>
-  <g>
-    <rect class="node" x="350" y="148" width="118" height="76" />
-    <circle class="num-bg" cx="372" cy="166" r="14" />
-    <text class="num" x="368" y="171">3</text>
-    <text class="label" x="382" y="184">Tests</text>
-    <text class="small" x="382" y="206">smoke checks</text>
-  </g>
-  <g>
-    <rect class="node node-red" x="494" y="148" width="118" height="76" />
-    <circle class="num-bg" cx="516" cy="166" r="14" />
-    <text class="num" x="512" y="171">4</text>
-    <text class="label" x="526" y="184">Scan</text>
-    <text class="small" x="526" y="206">image, IaC, SBOM</text>
-  </g>
-  <g>
-    <rect class="node" x="638" y="148" width="118" height="76" />
-    <circle class="num-bg" cx="660" cy="166" r="14" />
-    <text class="num" x="656" y="171">5</text>
-    <text class="label" x="670" y="184">Artifact</text>
-    <text class="small" x="670" y="206">tag, publish</text>
-  </g>
-  <g>
-    <rect class="node node-green" x="782" y="148" width="118" height="76" />
-    <circle class="num-bg" cx="804" cy="166" r="14" />
-    <text class="num" x="800" y="171">6</text>
-    <text class="label" x="814" y="184">GitOps</text>
-    <text class="small" x="814" y="206">desired state</text>
-  </g>
-  <g>
-    <rect class="node node-green" x="926" y="148" width="118" height="76" />
-    <circle class="num-bg" cx="948" cy="166" r="14" />
-    <text class="num" x="944" y="171">7</text>
-    <text class="label" x="958" y="184">Rollout</text>
-    <text class="small" x="958" y="206">status, rollback</text>
-  </g>
-  <g>
-    <rect class="node node-blue" x="1070" y="148" width="68" height="76" />
-    <circle class="num-bg" cx="1092" cy="166" r="14" />
-    <text class="num" x="1088" y="171">8</text>
-    <text class="label" x="1098" y="184">Ops</text>
-    <text class="small" x="1098" y="206">signals</text>
-  </g>
+  <rect class="n-blue" x="48" y="86" width="242" height="72" rx="11"/><circle class="num-bg" cx="74" cy="112" r="13"/><text class="t-num" x="74" y="117" text-anchor="middle">1</text><text class="t-step" x="96" y="117">Pull request</text><text class="t-step-d" x="70" y="142">review scope</text>
+  <rect class="pill" x="335" y="86" width="242" height="72" rx="11"/><circle class="num-bg" cx="361" cy="112" r="13"/><text class="t-num" x="361" y="117" text-anchor="middle">2</text><text class="t-step" x="383" y="117">Validation</text><text class="t-step-d" x="357" y="142">lint, config</text>
+  <rect class="pill" x="622" y="86" width="242" height="72" rx="11"/><circle class="num-bg" cx="648" cy="112" r="13"/><text class="t-num" x="648" y="117" text-anchor="middle">3</text><text class="t-step" x="670" y="117">Tests</text><text class="t-step-d" x="644" y="142">smoke checks</text>
+  <rect class="n-amber" x="909" y="86" width="242" height="72" rx="11"/><circle class="num-bg" cx="935" cy="112" r="13"/><text class="t-num" x="935" y="117" text-anchor="middle">4</text><text class="t-step" x="957" y="117">Scan gate</text><text class="t-step-d" x="931" y="142">image, IaC, SBOM</text>
 
-  <path class="line" d="M 180 186 H 206" />
-  <path class="line" d="M 324 186 H 350" />
-  <path class="line" d="M 468 186 H 494" />
-  <path class="line" d="M 612 186 H 638" />
-  <path class="line" d="M 756 186 H 782" />
-  <path class="line" d="M 900 186 H 926" />
-  <path class="line" d="M 1044 186 H 1070" />
+  <rect class="pill" x="909" y="200" width="242" height="72" rx="11"/><circle class="num-bg" cx="935" cy="226" r="13"/><text class="t-num" x="935" y="231" text-anchor="middle">5</text><text class="t-step" x="957" y="231">Artifact</text><text class="t-step-d" x="931" y="256">tag, publish</text>
+  <rect class="n-purple" x="622" y="200" width="242" height="72" rx="11"/><circle class="num-bg" cx="648" cy="226" r="13"/><text class="t-num" x="648" y="231" text-anchor="middle">6</text><text class="t-step" x="670" y="231">GitOps</text><text class="t-step-d" x="644" y="256">desired state</text>
+  <rect class="n-green" x="335" y="200" width="242" height="72" rx="11"/><circle class="num-bg" cx="361" cy="226" r="13"/><text class="t-num" x="361" y="231" text-anchor="middle">7</text><text class="t-step" x="383" y="231">Rollout</text><text class="t-step-d" x="357" y="256">status, rollback</text>
+  <rect class="n-green" x="48" y="200" width="242" height="72" rx="11"/><circle class="num-bg" cx="74" cy="226" r="13"/><text class="t-num" x="74" y="231" text-anchor="middle">8</text><text class="t-step" x="96" y="231">Operations</text><text class="t-step-d" x="70" y="256">post-deploy signals</text>
 
-  <text class="small" x="72" y="302">Controls represented: source review, reproducible builds, manifest validation, vulnerability scanning, SBOM direction, signing/provenance direction, rollout status, and post-deploy health checks.</text>
+  <path class="edge" d="M 290 122 H 335"/>
+  <path class="edge" d="M 577 122 H 622"/>
+  <path class="edge" d="M 864 122 H 909"/>
+  <path class="edge" d="M 1030 158 V 200"/>
+  <path class="edge" d="M 909 236 H 864"/>
+  <path class="edge" d="M 622 236 H 577"/>
+  <path class="edge" d="M 335 236 H 290"/>
+
+  <text class="t-sub" x="600" y="320" text-anchor="middle">Each step produces evidence: review, reproducible build, validation, vulnerability scanning, SBOM and signing, rollout status, and post-deploy health.</text>
 </svg>
